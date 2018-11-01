@@ -1,0 +1,26 @@
+<div class="container">
+		<a href="/trips/" class="attend_href">Back</a>
+Welcome <%= @user.first_name %>
+
+	<table class="table">
+			<thead class="tripheader">
+				<tr>
+					<th scope="col">Date</th>
+				   	<th scope="col">Trip</th>
+				   	<th scope="col">Location</th>
+				   	<th scope="col">Details</th>
+				   	<th scope="col"></th>
+				</tr>
+			</thead>
+			<tbody>
+				<% @attend.each do |s| %>
+				<tr>
+				    <td><%= s.date %></td>
+				    <td></td>
+				    <td></td>
+				    <td></td>
+				</tr>
+				   <% end %>
+				</tbody>
+	</table>
+</div>

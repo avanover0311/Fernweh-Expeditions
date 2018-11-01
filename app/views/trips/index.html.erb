@@ -1,0 +1,41 @@
+<div class="container">
+	<div class="nav navbar-nav navbar right header">
+		<a href="/attends/<%= @user.id %>" style="color:#CC5E23"><%= @user.first_name %>'s Upcoming Trips</a>
+	</div>
+	<div class="container">
+  		<img class="tripimg" src="https://images.unsplash.com/photo-1515705576963-95cad62945b6?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=fd0a9edabe9fd24d887dd3665be3268e&auto=format&fit=crop&w=1650&q=80" alt="stars" width="1000" height="300">
+  			<div class="bottomleft">
+  				<h2>Fernweh Expeditions</h2>
+					<p>Craving places you've never been</p>
+			</div>
+	</div>
+
+			<h3>Upcoming Trips</h3>
+				<table class="table">
+					<thead class="tripheader">
+				    	<tr>
+				      		<th scope="col">Date</th>
+				      		<th scope="col">Trip</th>
+				      		<th scope="col">Location</th>
+				      		<th scope="col">Details</th>
+				      		<th scope="col"></th>
+				    	</tr>
+				  	</thead>
+				  	<tbody>
+				  		<% @trip.each do |s| %>
+				    	<tr>
+				      		<td><%= s.date %></td>
+				      		<td><%= s.name %></td>
+				      		<td><%= s.location %></td>
+				      		<td><%= s.description %></td>
+				      		<td>
+				      			<% unless s.attendees.include?(@user) %> 
+          						<a href="/attends/<%= s.id %>" data-method="post">Join</a>
+        						<% end %>
+				      		</td>
+				      	</tr>
+				      	<% end %>
+					</tbody>
+				</table>	
+</div>
+		

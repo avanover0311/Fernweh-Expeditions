@@ -1,0 +1,34 @@
+<div class="container">
+	<a href="/trips/">Back</a>
+	<p><% flash.each do |key, value|  %>
+<div class="alert alert-<%= key %>" role="alert">
+  <p><%= value %> </p>
+</p>
+</div>
+<% end %>
+<h3>Upcoming Trips</h3>
+				<table class="table">
+					<thead class="tripheader">
+				    	<tr>
+				      		<th scope="col">Date</th>
+				      		<th scope="col">Trip</th>
+				      		<th scope="col">Location</th>
+				      		<th scope="col">Description</th>
+				      		<th scope="col"></th>
+				    	</tr>
+				  	</thead>
+				  	<tbody>
+				  		<% @attending.each do |s| %>
+				    	<tr>
+				      		<td><%= s.trip.date %></td>
+				      		<td><%= s.trip.name %></td>
+				      		<td><%= s.trip.location %></td>
+				      		<td><%= s.trip.description %></td>
+				      		<td><a href="/attends/<%= s.trip_id %>/destroy" data-method="delete">Cancel Trip</a>
+        						
+				      		</td>
+						<% end %>
+						</tr>
+					</tbody>
+				</table>	
+</div>
